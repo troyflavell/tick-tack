@@ -8,7 +8,6 @@ export default function GameBoard({
 }) {
 
 
-
   return (
  <ol id="game-board">
     {board.map((row, rowIndex) => (

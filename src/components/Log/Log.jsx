@@ -1,17 +1,13 @@
-export default function Log(
-    turns
- ) {
+export default function Log({turns}) {
 
     return (
         <ol id="log">
-            {
-                turns.map(turn => <li key={
-                    `${turn.square.row}-${turn.square.cell}`
-                }>
-                    {turn.player} selected {turn.square.row}, {turn.square.cell}
+            {turns.map((turn, index) => (
+                <li key={index}>
+                    <span>{turn.player}</span>
+                    <span>{`(${turn.square.row}, ${turn.square.cell})`}</span>
                 </li>
-                )}
-
+            ))}
         </ol>
     )
 }
