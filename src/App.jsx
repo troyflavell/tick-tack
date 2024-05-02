@@ -32,28 +32,30 @@ function deriveWinner(
   players
 ) {
   let winner = null
+ 
+  //check if game board is popluated with winning combinations
+
 
   for (const combination of WINNING_COMBINATIONS) {
-
-    console.log('combination', combination)
-  //   const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col]
-  //   const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col]
-  //   const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col]
-
-  //   if ( firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol) {
-  //    winner = players[firstSquareSymbol]
-  //    break
-  //   }
-
+    // console.log('combination', combination)
+    //  const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col]
+    // const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col]
+    // const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col]
+    //  if ( firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol) {
+    //   winner = players[firstSquareSymbol]
+    // }
   }
+
   return winner
-  
+
 }
 
 function deriveGameBoard(
   gameTurns
 ) {
   let gameBoard = [...INTIAL_GAME_BOARD.map(row => [...row])]
+
+  console.log('gameBoard', gameBoard)
 
   for (const turn of gameTurns) {
     const { square, player } = turn
