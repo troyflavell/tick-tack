@@ -9,7 +9,9 @@ export default function GameBoard({
     {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
+          
         {row.map((cell, cellIndex) => (
+     
           <li key={cellIndex} className="cell">
             <button onClick={() => onSelectSquare(
                 rowIndex,
@@ -17,6 +19,8 @@ export default function GameBoard({
             )} className="cell-button"
              disabled={cell !== null}
             >
+          
+             
                 {cell}
             </button>
             </li>

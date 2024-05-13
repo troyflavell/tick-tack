@@ -31,22 +31,60 @@ function deriveWinner(
   gameBoard,
   players
 ) {
-  let winner = null
+   let winner = null
  
   //check if game board is popluated with winning combinations
 
 
-  for (const combination of WINNING_COMBINATIONS) {
-    // console.log('combination', combination)
-    //  const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col]
-    // const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col]
-    // const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col]
-    //  if ( firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol) {
-    //   winner = players[firstSquareSymbol]
-    // }
+ for (const combination of WINNING_COMBINATIONS) {
+
+    let winner = null
+
+    const firstCell = gameBoard[0][0]
+    const secondCell = gameBoard[0][1]
+    const thirdCell = gameBoard[0][2]
+    const fourthCell = gameBoard[1][0]
+    const fifthCell = gameBoard[1][1]
+    const sixthCell = gameBoard[1][2]
+    const seventhCell = gameBoard[2][0]
+    const eighthCell = gameBoard[2][1]
+    const ninthCell = gameBoard[2][2]
+
+    if (firstCell === secondCell && secondCell === thirdCell && firstCell) {
+      winner = firstCell
+    }
+    if (fourthCell === fifthCell && fifthCell === sixthCell && fourthCell) {
+      winner = fourthCell
+    }
+    if (seventhCell === eighthCell && eighthCell === ninthCell && seventhCell) {
+      winner = seventhCell
+    }
+    if (firstCell === fourthCell && fourthCell === seventhCell && firstCell) {
+      winner = firstCell
+    }
+    if (secondCell === fifthCell && fifthCell === eighthCell && secondCell) {
+      winner = secondCell
+    }
+    if (thirdCell === sixthCell && sixthCell === ninthCell && thirdCell) {
+      winner = thirdCell
+    }
+    if (firstCell === fifthCell && fifthCell === ninthCell && firstCell) {
+      winner = firstCell
+    }
+    if (thirdCell === fifthCell && fifthCell === seventhCell && thirdCell) {
+      winner = thirdCell
+    }
+
+
+    console.log("gameBoard", firstCell);
+
+    if (winner) {
+      return players[winner]
+    }
+
   }
 
-  return winner
+
 
 }
 
@@ -55,12 +93,12 @@ function deriveGameBoard(
 ) {
   let gameBoard = [...INTIAL_GAME_BOARD.map(row => [...row])]
 
-  console.log('gameBoard', gameBoard)
+ 
 
   for (const turn of gameTurns) {
     const { square, player } = turn
-    const { row, col } = square
-    gameBoard[row][col] = player
+    const { row, cell } = square
+    gameBoard[row][cell] = player
   }
 
   return gameBoard
